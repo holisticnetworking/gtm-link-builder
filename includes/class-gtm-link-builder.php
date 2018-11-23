@@ -67,8 +67,8 @@ class Gtm_Link_Builder {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'PLUGIN_NAME_VERSION' ) ) {
-			$this->version = PLUGIN_NAME_VERSION;
+		if ( defined( 'MOWER_GTM_LINK_BUILDER_VERSION' ) ) {
+			$this->version = MOWER_GTM_LINK_BUILDER_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}
@@ -78,7 +78,6 @@ class Gtm_Link_Builder {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-
 	}
 
 	/**
