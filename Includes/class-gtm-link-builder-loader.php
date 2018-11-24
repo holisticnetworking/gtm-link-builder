@@ -1,4 +1,5 @@
 <?php
+namespace Gtm_Link_Builder\Includes;
 
 /**
  * Register all actions and filters for the plugin

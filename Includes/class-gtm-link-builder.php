@@ -1,4 +1,5 @@
 <?php
+namespace Gtm_Link_Builder\Includes;
 
 /**
  * The file that defines the core plugin class
@@ -212,6 +213,10 @@ class Gtm_Link_Builder {
 	 */
 	public function get_version() {
 		return $this->version;
+	}
+
+	public function new() {
+
 	}
 
 }

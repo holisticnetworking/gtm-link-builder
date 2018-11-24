@@ -1,4 +1,7 @@
 <?php
+namespace Gtm_Link_Builder;
+
+use Gtm_Link_Builder\Includes\Gtm_Link_Builder_Activator;
 
 /**
  * The plugin bootstrap file
@@ -74,9 +77,8 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-gtm-link-builder.php';
  * @since    1.0.0
  */
 function run_gtm_link_builder() {
-
-	$plugin = new Gtm_Link_Builder();
-	$plugin->run();
-
+	$gtm_factory = new Gtm_Link_Builder();
+	$gtm_factory->run();
+	return $gtm_factory;
 }
-run_gtm_link_builder();
+$gtm_factory = run_gtm_link_builder();

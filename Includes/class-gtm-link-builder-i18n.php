@@ -1,4 +1,5 @@
 <?php
+namespace Gtm_Link_Builder\Includes;
 
 /**
  * Define the internationalization functionality
