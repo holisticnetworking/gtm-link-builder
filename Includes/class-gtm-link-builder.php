@@ -1,6 +1,10 @@
 <?php
 namespace Gtm_Link_Builder\Includes;
 
+use Gtm_Link_Builder\Admin\Gtm_Link_Builder_Admin;
+use Gtm_Link_Builder\Frontend\Gtm_Link_Builder_Public;
+use Gtm_Link_Builder\Includes\Gtm_Link_Builder_Link;
+
 /**
  * The file that defines the core plugin class
  *
@@ -98,32 +102,7 @@ class Gtm_Link_Builder {
 	 * @access   private
 	 */
 	private function load_dependencies() {
-
-		/**
-		 * The class responsible for orchestrating the actions and filters of the
-		 * core plugin.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-gtm-link-builder-loader.php';
-
-		/**
-		 * The class responsible for defining internationalization functionality
-		 * of the plugin.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-gtm-link-builder-i18n.php';
-
-		/**
-		 * The class responsible for defining all actions that occur in the admin area.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-gtm-link-builder-admin.php';
-
-		/**
-		 * The class responsible for defining all actions that occur in the public-facing
-		 * side of the site.
-		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-gtm-link-builder-public.php';
-
 		$this->loader = new Gtm_Link_Builder_Loader();
-
 	}
 
 	/**
@@ -215,8 +194,8 @@ class Gtm_Link_Builder {
 		return $this->version;
 	}
 
-	public function new() {
-
+	public function instance( $args ) {
+		return new \Gtm_Link_Builder\Includes\Gtm_Link_Builder_Link( $args );
 	}
 
 }

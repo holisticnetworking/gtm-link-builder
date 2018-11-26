@@ -53,10 +53,11 @@ class Gtm_Link_Builder_Link {
 	 */
 	public function __construct( $args=null ) {
 		if( is_array( $args ) ) {
+			$this->url        = ! empty( $args['url'] ) ? esc_url( $args['url'] ) : null;
 			$this->category   = ! empty( $args['category'] ) ? sanitize_text_field( $args['category'] ) : null;
 			$this->label      = ! empty( $args['label'] ) ? sanitize_text_field( $args['label'] ) : null;
 			$this->link_text  = ! empty( $args['link_text'] ) ? sanitize_text_field( $args['link_text'] ) : null;
-			$this->attributes = $this->get_attributes();
+			$this->attributes = $this->get_attributes( $args );
 			return true;
 		} else {
 			return false;
@@ -117,15 +118,20 @@ class Gtm_Link_Builder_Link {
 		return $this->link_text;
 	}
 
+	public function set_attributes() {
+		// do things
+	}
+
 	/**
 	 * For all elements of the given array that exist on our approved list of HTML attributes,
 	 * return a string with =the attribute fragments to add to our element.
+	 * @param array $args An array of calling arguments.
 	 * @return string
 	 */
-	public function get_attributes() {
+	public function get_attributes( $args ) {
 		$atts = [];
 		foreach( $this->html_attributes as $att ) {
-			if( key_exists( $att, $this->attributes ) ) {
+			if( key_exists( $att, $args ) ) {
 				$atts[] = sprintf(
 					'%s="%s"',
 					$att,

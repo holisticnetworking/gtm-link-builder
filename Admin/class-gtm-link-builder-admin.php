@@ -114,10 +114,16 @@ class Gtm_Link_Builder_Admin {
 
 	public function admin_test_page() {
 		global $gtm_factory;
+		$link = $gtm_factory->instance([
+		    'label' => 'Admin Test Link',
+            'category' => 'Testing GTMs',
+        ]);
 		?>
 		<div class="wrap">
 			<h2>Oh, hey.</h2>
-			<h3><?php if ( empty( $gtm_factory ) ) { echo 'Nope'; } else { echo 'Yup'; } ?></h3>
+			<h3><?php
+                echo $link->link();
+            ?></h3>
 		</div>
 		<?php
 	}
