@@ -62,6 +62,9 @@ class Gtm_Link_Builder {
 	 */
 	protected $version;
 
+	protected $label;
+	protected $category;
+
 	/**
 	 * Define the core functionality of the plugin.
 	 *
@@ -71,7 +74,7 @@ class Gtm_Link_Builder {
 	 *
 	 * @since    1.0.0
 	 */
-	public function __construct() {
+	public function __construct( $args = array() ) {
 		if ( defined( 'MOWER_GTM_LINK_BUILDER_VERSION' ) ) {
 			$this->version = MOWER_GTM_LINK_BUILDER_VERSION;
 		} else {
@@ -83,6 +86,13 @@ class Gtm_Link_Builder {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
+
+		if( isset( $args['category'] ) ) {
+			$this->set_category( $args['category'] );
+		}
+		if( isset( $args['label'] ) ) {
+			$this->set_label( $args['label'] );
+		}
 	}
 
 	/**
@@ -195,7 +205,35 @@ class Gtm_Link_Builder {
 	}
 
 	public function instance( $args ) {
-		return new \Gtm_Link_Builder\Includes\Gtm_Link_Builder_Link( $args );
+		return new Gtm_Link_Builder_Link( $args );
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function get_label() {
+		return $this->label;
+	}
+
+	/**
+	 * @param mixed $label
+	 */
+	public function set_label( $label ) {
+		$this->label = esc_attr( $label );
+	}
+
+	/**
+	 * @return mixed
+	 */
+	public function get_category() {
+		return $this->category;
+	}
+
+	/**
+	 * @param mixed $category
+	 */
+	public function set_category( $category ) {
+		$this->category = esc_attr( $category );
 	}
 
 }

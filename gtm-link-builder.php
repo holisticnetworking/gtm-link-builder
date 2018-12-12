@@ -20,7 +20,7 @@ use Gtm_Link_Builder\Includes\Gtm_Link_Builder_Deactivator;
  * @wordpress-plugin
  * Plugin Name:       Google Tag Manager Link Builder
  * Plugin URI:        http://mower.com
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
+ * Description:       Creates mess-free HTML5 links with Google Tag Manager markup.
  * Version:           1.0.0
  * Author:            Mower
  * Author URI:        http://mower.com
@@ -76,9 +76,8 @@ register_deactivation_hook( __FILE__, 'deactivate_gtm_link_builder' );
  *
  * @since    1.0.0
  */
-function run_gtm_link_builder() {
+function get_gtm_link_builder() {
 	$gtm_factory = new Gtm_Link_Builder();
 	$gtm_factory->run();
 	return $gtm_factory;
 }
-$gtm_factory = run_gtm_link_builder();

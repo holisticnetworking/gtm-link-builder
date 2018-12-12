@@ -1,0 +1,15 @@
+{
+    "name": "mower/gtm-link-builder",
+    "description": "A vehicle for creating HTML5-valid links with GTM data attributes",
+    "type": "library",
+    "license": "GPL",
+    "authors": [
+        {
+            "name": "Tom Belknap",
+            "email": "tbelknap@mower.com"
+        }
+    ],
+    "require": {
+        "phpdocumentor/phpdocumentor": "2.*"
+    }
+}

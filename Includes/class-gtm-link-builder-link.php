@@ -57,7 +57,7 @@ class Gtm_Link_Builder_Link {
 			$this->category   = ! empty( $args['category'] ) ? sanitize_text_field( $args['category'] ) : null;
 			$this->label      = ! empty( $args['label'] ) ? sanitize_text_field( $args['label'] ) : null;
 			$this->link_text  = ! empty( $args['link_text'] ) ? sanitize_text_field( $args['link_text'] ) : null;
-			$this->attributes = $this->get_attributes( $args );
+			$this->set_attributes( $args );
 			return true;
 		} else {
 			return false;
@@ -71,7 +71,7 @@ class Gtm_Link_Builder_Link {
 		return sprintf(
 			'<a href="%1$s" %2$s %3$s %4$s>%5$s</a>',
 			'https://google.com',
-			$this->get_attributes(),
+			$this->do_attributes(),
 			$this->get_label(),
 			$this->get_category(),
 			$this->get_link_text()
@@ -118,28 +118,20 @@ class Gtm_Link_Builder_Link {
 		return $this->link_text;
 	}
 
-	public function set_attributes() {
-		// do things
+	public function set_attributes( $args=null ) {
+		foreach( $this->html_attributes as $att ) {
+			if( key_exists( $att, $args ) ) {
+				$this->attributes[ $att ] = esc_attr( $args[ $att ] );
+			}
+		}
 	}
 
 	/**
-	 * For all elements of the given array that exist on our approved list of HTML attributes,
-	 * return a string with =the attribute fragments to add to our element.
-	 * @param array $args An array of calling arguments.
+	 * Concatenates $this->attributes into a string of HTML attributes, separated by spaces.
 	 * @return string
 	 */
-	public function get_attributes( $args ) {
-		$atts = [];
-		foreach( $this->html_attributes as $att ) {
-			if( key_exists( $att, $args ) ) {
-				$atts[] = sprintf(
-					'%s="%s"',
-					$att,
-					$this->attributes[ $att ]
-				);
-			}
-		}
-		return implode( ' ', $atts );
+	public function do_attributes() {
+		return implode( ' ', $this->attributes );
 	}
 
 }

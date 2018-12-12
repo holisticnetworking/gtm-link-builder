@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpdoc>
+    <title>GTM Link Builder</title>
+    <parser>
+        <target>Docs/api</target>
+    </parser>
+    <transformer>
+        <target>Docs/api</target>
+    </transformer>
+    <files>
+        <file>./Admin/class-gtm-link-builder-admin.php</file>
+        <file>./Frontend/class-gtm-link-builder-public.php</file>
+        <directory>./Includes</directory>
+    </files>
+</phpdoc>
