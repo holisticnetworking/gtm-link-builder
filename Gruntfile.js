@@ -9,7 +9,7 @@ module.exports = function( grunt ) {
 
 		addtextdomain: {
 			options: {
-				textdomain: 'gtm-builder-pre',
+				textdomain: 'gtm-builder',
 			},
 			update_all_domains: {
 				options: {
@@ -32,8 +32,8 @@ module.exports = function( grunt ) {
 				options: {
 					domainPath: '/languages',
 					exclude: [ '\.git/*', 'bin/*', 'node_modules/*', 'tests/*' ],
-					mainFile: 'gtm-builder-pre.php',
-					potFilename: 'gtm-builder-pre.pot',
+					mainFile: 'gtm-builder.php',
+					potFilename: 'gtm-builder.pot',
 					potHeaders: {
 						poedit: true,
 						'x-poedit-keywordslist': true
