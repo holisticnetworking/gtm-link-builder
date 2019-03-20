@@ -7,7 +7,7 @@
  * Author URI:      https://mower.com
  * Text Domain:     gtm-link-builder
  * Domain Path:     /languages
- * Version:         0.1.0
+ * Version:         0.1beta
  *
  * @package         Gtm_Link_Builder
  */
