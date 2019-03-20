@@ -1,114 +1,60 @@
-=== Gtm Builder Pre ===
-Contributors: (this should be a list of wordpress.org userid's)
-Donate link: https://example.com/
-Tags: comments, spam
-Requires at least: 4.5
-Tested up to: 5.0.2
+=== Google Tag Manager Link Builder ===
+Contributors: dragonflyeye
+Tags: seo, google
+Requires at least: 5.1
+Tested up to: 5.1
 Stable tag: 0.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Here is a short description of the plugin.  This should be no more than 150 characters.  No markup here.
+Create links with Google Tag Manager data attributes of your choice. Set defaults for page-wide settings.
 
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
+The genesis of this project was a company I worked for that was setting category and title GTM tags on every link on a given
+website. This offers your client a very flexible way of being very specific about understanding the paths visitors take on
+a website, just as GTM promises. But as always, the problem was the error-prone nature of hand-setting HTML links with the
+proper attributes.
 
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and
-Markdown parsed.
-
-A few notes about the sections above:
-
-*   "Contributors" is a comma separated list of wp.org/wp-plugins.org usernames
-*   "Tags" is a comma separated list of tags that apply to the plugin
-*   "Requires at least" is the lowest version that the plugin will work on
-*   "Tested up to" is the highest version that you've *successfully used to test the plugin*. Note that it might work on
-higher versions... this is just the highest one you've verified.
-*   Stable tag should indicate the Subversion "tag" of the latest stable version, or "trunk," if you use `/trunk/` for
-stable.
-
-    Note that the `readme.txt` of the stable tag is the one that is considered the defining one for the plugin, so
-if the `/trunk/readme.txt` file says that the stable tag is `4.3`, then it is `/tags/4.3/readme.txt` that'll be used
-for displaying information about the plugin.  In this situation, the only thing considered from the trunk `readme.txt`
-is the stable tag pointer.  Thus, if you develop in trunk, you can update the trunk `readme.txt` to reflect changes in
-your in-development version, without having that information incorrectly disclosed about the current stable version
-that lacks those changes -- as long as the trunk's `readme.txt` points to the correct stable tag.
-
-    If no stable tag is provided, it is assumed that trunk is stable, but you should specify "trunk" if that's where
-you put the stable version, in order to eliminate any doubt.
+The solution this plugin sets out to provide is a developer-friendly means to ensure complete GTM coverage of all links on a
+WordPress page, post or CPT. To that end, this project seeks to accomplish the following:
+1. Allow the user to enter their GTM ID
+1. Provide the header and body GTM script tags (or allow the option not to)
+1. Create an object in the global scope for all page loads that provides a set of functions for creating GTM links
+programmatically
+1. GTM object should provide a set of default values for variables. This list of defaults could come from site-wide
+options, page-specific meta values or programmer-set variables in the call.
+1. Shortcode that produces all the same output as the object in the body of a post.
+1. Some means of also providing this functionality to navigation menus.
 
 == Installation ==
 
-This section describes how to install the plugin and get it working.
+You know the drill. Download, upload, activate.
 
-e.g.
-
-1. Upload `plugin-name.php` to the `/wp-content/plugins/` directory
-1. Activate the plugin through the 'Plugins' menu in WordPress
-1. Place `<?php do_action('plugin_name_hook'); ?>` in your templates
+Using the object should be as simple as:
+`global $gtm_link_builder;`
 
 == Frequently Asked Questions ==
 
 = A question that someone might have =
 
-An answer to that question.
-
-= What about foo bar? =
-
-Answer to foo bar dilemma.
+Good question, dude!
 
 == Screenshots ==
 
-1. This screen shot description corresponds to screenshot-1.(png|jpg|jpeg|gif). Note that the screenshot is taken from
-the /assets directory or the directory that contains the stable readme.txt (tags or trunk). Screenshots in the /assets
-directory take precedence. For example, `/assets/screenshot-1.png` would win over `/tags/4.3/screenshot-1.png`
-(or jpg, jpeg, gif).
-2. This is the second screen shot
+Stay tuned!
 
 == Changelog ==
 
-= 1.0 =
-* A change since the previous version.
-* Another change.
-
-= 0.5 =
-* List versions from most recent at top to oldest at bottom.
+= 0.1beta =
+Initial commit to GitHub
 
 == Upgrade Notice ==
 
-= 1.0 =
-Upgrade notices describe the reason a user should upgrade.  No more than 300 characters.
+= 0.1beta =
+Cover your butts
 
-= 0.5 =
-This version fixes a security related bug.  Upgrade immediately.
+== Contributions ==
 
-== Arbitrary section ==
-
-You may provide arbitrary sections, in the same format as the ones above.  This may be of use for extremely complicated
-plugins where more information needs to be conveyed that doesn't fit into the categories of "description" or
-"installation."  Arbitrary sections will be shown below the built-in sections outlined above.
-
-== A brief Markdown Example ==
-
-Ordered list:
-
-1. Some feature
-1. Another feature
-1. Something else about the plugin
-
-Unordered list:
-
-* something
-* something else
-* third thing
-
-Here's a link to [WordPress](https://wordpress.org/ "Your favorite software") and one to [Markdown's Syntax Documentation][markdown syntax].
-Titles are optional, naturally.
-
-[markdown syntax]: https://daringfireball.net/projects/markdown/syntax
-            "Markdown is what the parser uses to process much of the readme file"
-
-Markdown uses email style notation for blockquotes and I've been told:
-> Asterisks for *emphasis*. Double it up  for **strong**.
-
-`<?php code(); // goes in backticks ?>`
+This project is being developed on GitHub. Please support this project with your own bug fixes, suggestions and help!
+https://github.com/holisticnetworking/gtm-link-builder
