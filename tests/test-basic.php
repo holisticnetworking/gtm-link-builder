@@ -8,13 +8,13 @@
 /**
  * Sample test case.
  */
-class SampleTest extends WP_UnitTestCase {
+class TestBasic extends WP_UnitTestCase {
 
 	/**
 	 * A single example test.
 	 */
 	public function test_sample() {
-		// Replace this with some actual testing code.
-		$this->assertTrue( true );
+		global $gtm_link_builder;
+		$this->assertTrue( ! empty( $gtm_link_builder ) );
 	}
 }
