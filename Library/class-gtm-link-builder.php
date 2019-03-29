@@ -16,6 +16,20 @@ class Gtm_Link_Builder {
 		}
 	}
 
+	/**
+	 * @return string|void|null
+	 */
+	public function get_label() {
+		return $this->label;
+	}
+
+	/**
+	 * @return string|void|null
+	 */
+	public function get_category() {
+		return $this->category;
+	}
+
 	public function link( $args ) {
 		$link = null;
 		if( ! empty( $args['url'] ) ) {

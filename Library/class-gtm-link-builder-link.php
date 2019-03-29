@@ -5,8 +5,6 @@
 namespace Gtm_Link_Builder\Library;
 
 class Gtm_Link_Builder_Link {
-	protected $category_slug = 'data-emacategory';
-	protected $label_slug = 'data-emalabel';
 	protected $label = null;
 	protected $category = null;
 	protected $attributes = null;

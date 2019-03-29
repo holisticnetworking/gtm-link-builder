@@ -11,10 +11,15 @@
 class TestBasic extends WP_UnitTestCase {
 
 	/**
-	 * A single example test.
+	 * Simply confirm that the object exists in the global space
 	 */
-	public function test_sample() {
+	public function text_exists() {
 		global $gtm_link_builder;
 		$this->assertTrue( ! empty( $gtm_link_builder ) );
+	}
+
+	public function test_default_values() {
+		global $gtm_link_builder;
+		$this->assertTrue( is_string( $gtm_link_builder->get_category() ) && is_string( $gtm_link_builder->get_label() ) );
 	}
 }
