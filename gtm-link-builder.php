@@ -13,7 +13,8 @@
  */
 
 namespace Gtm_Link_Builder;
-use Gtm_Link_Builder\Library\Gtm_Link_Builder as Gtm_Link_Builder;
+use Gtm_Link_Builder\Library\Gtm_Link_Builder as Builder;
+use Gtm_Link_Builder\Admin\Gtm_Link_Builder_Screens as Admin;
 
 require_once plugin_dir_path( __FILE__ ) . '/Library/autoload.php';
 
@@ -23,4 +24,8 @@ require_once plugin_dir_path( __FILE__ ) . '/Library/autoload.php';
 // @todo: Admin panel for default settings
 // @todo: Admin panel for registering events
 
-$gtm_link_builder = new Gtm_Link_Builder();
+$gtm_link_builder = new Builder();
+
+if( is_admin() ) {
+	$gtm_link_builder_admin = new Admin();
+}
